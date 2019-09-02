@@ -3,10 +3,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:ComboBoxTest"
+
         xmlns:local="clr-namespace:ComboBoxTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="135" Width="175" ResizeMode="NoResize">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="10,10,0,0"
+                 TextWrapping="Wrap"
+                 Text="ComboBox -> TextBox"
+                 VerticalAlignment="Top" Width="147"
+                 IsEnabled="False"/>
+
+        <ComboBox HorizontalAlignment="Left"
+                  Margin="10,38,0,0"
+                  VerticalAlignment="Top"
+                  Width="147"
+                  ItemsSource="{Binding Path=ComboBoxList, Mode=OneWay}"
+                  SelectedValue="{Binding Path=TextBoxValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 Margin="10,65,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding Path=TextBoxValue}" 
+                 VerticalAlignment="Top" 
+                 Width="147"/>
+
     </Grid>
 </Window>
