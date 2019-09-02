@@ -46,7 +46,6 @@ namespace ComboBoxTest
                 {
                     var _textBoxValue = TextBoxValue;
                     textBoxValue = value;
-                    RaisePropertyChanged(nameof(TextBoxValue));
 
                     if (value == "test")
                     {
@@ -61,8 +60,8 @@ namespace ComboBoxTest
 
                         // 元のデータを戻す
                         textBoxValue = _textBoxValue;
-                        RaisePropertyChanged(nameof(TextBoxValue));
                     }
+                    RaisePropertyChanged(nameof(TextBoxValue));
                 }
             }
         }
