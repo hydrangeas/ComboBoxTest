@@ -61,8 +61,8 @@ namespace ComboBoxTest
 
                         // 元のデータを戻す
                         textBoxValue = _textBoxValue;
+                        RaisePropertyChanged(nameof(TextBoxValue));
                     }
-                    RaisePropertyChanged(nameof(TextBoxValue));
                 }
             }
         }
