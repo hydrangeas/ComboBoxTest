@@ -42,27 +42,13 @@ namespace ComboBoxTest
             get => textBoxValue;
             set
             {
-                if (value is string)
+                // 例えば "test" という文字が選択された場合、選択できなくする
+                if (value != "test")
                 {
-                    var _textBoxValue = TextBoxValue;
                     textBoxValue = value;
-
-                    if (value == "test")
-                    {
-                        // 例えば "test" という文字は選択された場合、選択できなくする
-
-                        // 元のデータをバックアップ
-                        var _comboBoxList = ComboBoxList.ToList();
-
-                        // リストを更新することで強制的にComboBoxの更新を行う
-                        ComboBoxList.Clear();
-                        _comboBoxList.ForEach(x => ComboBoxList.Add(x));
-
-                        // 元のデータを戻す
-                        textBoxValue = _textBoxValue;
-                    }
-                    RaisePropertyChanged(nameof(TextBoxValue));
                 }
+                // ComboBox以外にも通知する
+                RaisePropertyChanged(nameof(TextBoxValue));
             }
         }
     }

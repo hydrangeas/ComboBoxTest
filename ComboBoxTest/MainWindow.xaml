@@ -25,7 +25,7 @@
                   VerticalAlignment="Top"
                   Width="147"
                   ItemsSource="{Binding Path=ComboBoxList, Mode=OneWay}"
-                  SelectedValue="{Binding Path=TextBoxValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue="{Binding Path=TextBoxValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Delay=1}"
                   />
         <TextBox HorizontalAlignment="Left"
                  Height="23"
